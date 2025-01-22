@@ -1,3 +1,96 @@
+ 1. JavaScript Basics
+Question: JavaScript kya hai aur ye kis type ki language hai?
+Answer:
+JavaScript ek high-level, interpreted, aur dynamic programming language hai. Ye primarily client-side web development ke liye use hoti hai, lekin Node.js ke zariye server-side bhi kaam kar sakti hai. Ye single-threaded aur prototype-based object-oriented language hai.
+
+2. Variables aur Data Types
+Question: JavaScript mein var, let, aur const ka kya farq hai?
+Answer:
+
+var: Function-scoped hoti hai aur hoisting ke sath kaam karti hai.
+let: Block-scoped hoti hai aur re-assign ki ja sakti hai.
+const: Block-scoped hoti hai lekin ismein ek baar assign ki gayi value change nahi ho sakti.
+3. Functions
+Question: Arrow function aur traditional function mein kya farq hai?
+Answer:
+
+Arrow Function: Short syntax ke liye use hoti hai aur iska this parent scope se bind hota hai.
+Traditional Function: Iska apna this context hota hai.
+javascript
+Copy
+Edit
+const arrowFunc = () => console.log(this); // Parent scope
+function traditionalFunc() {
+  console.log(this); // Apna scope
+}
+4. DOM Manipulation
+Question: DOM manipulation ke liye kaunse methods use hote hain?
+Answer:
+
+document.getElementById(): ID ke basis par element fetch karna.
+document.querySelector(): CSS selector ke zariye element lena.
+innerHTML aur textContent: Element ke andar ka content change karna.
+addEventListener(): Events ko handle karna.
+5. Asynchronous JavaScript
+Question: Callback, Promise, aur Async/Await mein kya farq hai?
+Answer:
+
+Callback: Ek function jo doosre function ke andar argument ke taur par pass hota hai.
+Promise: Ek object jo future mein value return karega (resolve/reject).
+Async/Await: Promises ko handle karne ka easier syntax.
+javascript
+Copy
+Edit
+// Promise
+fetch("url").then(response => response.json()).then(data => console.log(data));
+
+// Async/Await
+async function fetchData() {
+  const response = await fetch("url");
+  const data = await response.json();
+  console.log(data);
+}
+6. Arrays aur Objects
+Question: Array ke commonly used methods kaunse hain?
+Answer:
+
+push(), pop(), shift(), unshift()
+map(), filter(), reduce()
+find(), findIndex(), forEach()
+7. Event Loop
+Question: Event Loop kya hai?
+Answer:
+JavaScript ka event loop ek mechanism hai jo asynchronous operations ko handle karta hai. Ye call stack aur task queue ke beech coordination karta hai.
+
+8. Error Handling
+Question: Error handling ke liye JavaScript mein kya use karte hain?
+Answer:
+Error handling ke liye try...catch aur throw statements ka use hota hai.
+
+javascript
+Copy
+Edit
+try {
+  const num = 10 / 0;
+  if (!isFinite(num)) throw new Error("Divide by zero!");
+} catch (err) {
+  console.error(err.message);
+}
+9. ES6+ Features
+Question: ES6 mein introduce ki gayi kuch important features ka zikr karein.
+Answer:
+
+let aur const
+Template literals
+Arrow functions
+Classes
+Destructuring assignment
+Modules (import/export)
+10. Advanced Topics
+Question: JavaScript mein hoisting kya hoti hai?
+Answer:
+Hoisting ek mechanism hai jisme variables aur function declarations ko execution ke pehle memory mein upar le jaata hai. Lekin let aur const variables temporal dead zone mein hote hain.
+
   1. What is JavaScript?
 Answer:
 JavaScript is a lightweight, interpreted, or just-in-time compiled programming language used to create interactive effects on web pages. It is primarily used for client-side development but can also be used on the server side with environments like Node.js.
@@ -242,3 +335,30 @@ Nested array ko flatten karne ka function likho.
 Custom deep comparison function banao jo do objects ko compare kare.
 
 
+  1. Basics of JavaScript
+JavaScript aur ECMAScript mein kya farq hai?
+
+JavaScript ek programming language hai jo web browsers mein chalti hai.
+ECMAScript ek standard hai jiske rules aur specifications JavaScript follow karta hai.
+JavaScript = Implementation, ECMAScript = Standard.
+JavaScript single-threaded language hai ya multi-threaded? Explain karo.
+
+JavaScript single-threaded hai, iska matlab ek waqt mein ek hi kaam (execution) kar sakti hai.
+Asynchronous tasks ko handle karne ke liye Event Loop aur Callback Queue ka use karti hai.
+undefined aur null mein kya farq hai?
+
+undefined: Jab variable declare ho jaye lekin uski koi value assign na ho.
+null: Ek intentional empty value hai jo developer manually assign karta hai.
+2. Variables aur Scopes
+JavaScript mein var, let, aur const ka farq samjhao.
+
+var: Function-scoped, hoisting hoti hai.
+let: Block-scoped, reassign ho sakta hai.
+const: Block-scoped, immutable value.
+Block scope aur function scope mein kya difference hai?
+
+Block scope: {} ke andar declare variables block ke bahar accessible nahi hote (let, const).
+Function scope: Variables sirf function ke andar accessible hote hain (var).
+Temporal Dead Zone kya hoti hai?
+
+Ek phase jisme variables let aur const ke liye declare hone ke baad hi use ho sakte hain, lekin hoisting ke baad se unka memory allocation hota hai.
