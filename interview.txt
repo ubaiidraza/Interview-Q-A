@@ -362,3 +362,54 @@ Function scope: Variables sirf function ke andar accessible hote hain (var).
 Temporal Dead Zone kya hoti hai?
 
 Ek phase jisme variables let aur const ke liye declare hone ke baad hi use ho sakte hain, lekin hoisting ke baad se unka memory allocation hota hai.
+   3. Data Types aur Type Conversion
+JavaScript mein primitive aur non-primitive types kaunse hain?
+
+Primitive types: string, number, boolean, undefined, null, bigint, symbol.
+Non-primitive types: Object, Array, Function.
+Implicit type coercion kya hoti hai?
+JavaScript automatically type conversion karta hai.
+
+javascript
+Copy
+Edit
+console.log('5' + 5); // "55" (string concatenation)
+console.log('5' - 5); // 0 (number subtraction)
+== aur === mein kya difference hai?
+
+==: Type coercion karta hai. (5 == '5' -> true)
+===: Strict equality check karta hai, type coercion nahi karta. (5 === '5' -> false)
+4. Functions
+Higher-order function kya hota hai?
+Ek function jo doosre function ko argument ke taur par le ya return kare.
+
+Callback function kya hota hai aur iska use batayein?
+Ek function jo kisi doosre function ke andar argument ke taur par pass kiya jata hai.
+
+Closure kya hota hai? Example ke sath explain karein.
+Closure tab banta hai jab ek inner function apne outer function ke variables ko access karta hai, even after outer function execute ho chuka ho.
+
+javascript
+Copy
+Edit
+function outer() {
+  let count = 0;
+  return function inner() {
+    count++;
+    return count;
+  };
+}
+const increment = outer();
+console.log(increment()); // 1
+console.log(increment()); // 2
+5. DOM Manipulation
+DOM kya hota hai aur kaise kaam karta hai?
+Document Object Model (DOM) ek browser ke andar HTML aur XML documents ko structure aur interact karne ka tarika hai.
+
+document.querySelector() aur document.getElementById() mein kya farq hai?
+
+getElementById(): Sirf ID ke zariye element ko fetch karta hai.
+querySelector(): CSS selector ke zariye element ko fetch karta hai.
+Event delegation kya hoti hai aur iska use kya hai?
+Ek parent element ke upar event listener lagana, aur uske child elements ke events ko handle karna.
+
