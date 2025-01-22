@@ -413,3 +413,58 @@ querySelector(): CSS selector ke zariye element ko fetch karta hai.
 Event delegation kya hoti hai aur iska use kya hai?
 Ek parent element ke upar event listener lagana, aur uske child elements ke events ko handle karna.
 
+   6. Asynchronous JavaScript
+JavaScript synchronous hai ya asynchronous? Explain karo.
+JavaScript synchronous hai, lekin asynchronous tasks ke liye Promises, async/await, aur event loop ka use karta hai.
+
+Promises ke lifecycle ke different states ka zikr karo.
+
+Pending: Initial state.
+Fulfilled: Task complete ho gaya.
+Rejected: Task fail ho gaya.
+Async/Await kaise kaam karta hai?
+Promises ko handle karne ke liye simplified syntax hai.
+
+7. Arrays aur Objects
+Shallow copy aur deep copy kaise karte hain?
+
+Shallow copy: Object.assign() ya spread operator.
+Deep copy: JSON.parse(JSON.stringify()).
+map() vs forEach()
+
+map(): Naya array return karta hai.
+forEach(): Sirf iteration ke liye hai, kuch return nahi karta.
+8. Hoisting
+Hoisting ka matlab kya hai?
+Variables aur functions ko unke declaration se pehle memory mein allocate karna.
+
+Function declarations aur function expressions mein hoisting ke waqt kya farq hota hai?
+
+Declaration: Hoisting hoti hai.
+Expression: Hoisting nahi hoti.
+9. Event Loop aur Execution Context
+Event loop kaise kaam karta hai?
+Event loop synchronous aur asynchronous code ko efficiently manage karta hai.
+
+10. ES6+ Features
+Template literals kya hote hain?
+String interpolation ke liye use hote hain:
+
+javascript
+Copy
+Edit
+let name = 'Ubaid';
+console.log(`Hello, ${name}!`);
+Spread operator aur rest operator mein kya farq hai?
+
+Spread: Expand karta hai.
+Rest: Collect karta hai.
+11. Error Handling
+try...catch kaise use hota hai?
+Errors ko handle karne ke liye.
+
+12. Closures
+Real-world example: Private variables banana.
+
+13. Prototypes aur Inheritance
+Prototype-based inheritance: Objects ke beech sharing.
