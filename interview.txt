@@ -1,0 +1,244 @@
+  1. What is JavaScript?
+Answer:
+JavaScript is a lightweight, interpreted, or just-in-time compiled programming language used to create interactive effects on web pages. It is primarily used for client-side development but can also be used on the server side with environments like Node.js.
+ 
+2. What are variables in JavaScript? How do you declare them?
+Answer:
+Variables are containers for storing data values.
+You can declare variables using:
+
+var (function-scoped, old way)
+let (block-scoped, modern)
+const (block-scoped, constant)
+javascript
+Copy
+Edit
+let x = 10; 
+const y = 20; 
+var z = 30;
+3. What are data types in JavaScript?
+Answer:
+JavaScript has the following data types:
+
+Primitive: String, Number, Boolean, Undefined, Null, Symbol, BigInt
+Non-Primitive: Object (Arrays, Functions, etc.)
+4. What is the difference between == and ===?
+Answer:
+
+== compares values only (type coercion occurs).
+=== compares both values and types (strict equality).
+javascript
+Copy
+Edit
+5 == "5";   // true
+5 === "5";  // false
+5. What are JavaScript functions? How do you define them?
+Answer:
+Functions are blocks of reusable code that perform a specific task.
+You can define functions as:
+
+javascript
+Copy
+Edit
+// Function Declaration
+function greet() {
+  console.log("Hello!");
+}
+
+// Function Expression
+const greet = function () {
+  console.log("Hello!");
+};
+
+// Arrow Function
+const greet = () => {
+  console.log("Hello!");
+};
+6. What is an array? How do you create one?
+Answer:
+An array is a collection of elements stored in a single variable.
+
+javascript
+Copy
+Edit
+const fruits = ["Apple", "Banana", "Mango"];
+console.log(fruits[0]); // Accesses "Apple"
+7. What is the difference between null and undefined?
+Answer:
+
+undefined: A variable is declared but not assigned a value.
+null: Intentionally assigned to a variable to represent "no value."
+8. What are JavaScript objects?
+Answer:
+Objects are collections of key-value pairs.
+
+javascript
+Copy
+Edit
+const person = {
+  name: "John",
+  age: 25,
+};
+console.log(person.name); // "John"
+9. What is the DOM?
+Answer:
+The Document Object Model (DOM) is a programming interface that represents the structure of an HTML document. It allows JavaScript to manipulate elements dynamically.
+
+10. What are events in JavaScript?
+Answer:
+Events are actions or occurrences (like clicks, hovers) that JavaScript can respond to.
+
+javascript
+Copy
+Edit
+document.getElementById("btn").addEventListener("click", function () {
+  alert("Button clicked!");
+});
+11. What is the difference between var, let, and const?
+Answer:
+
+var: Function-scoped, hoisted, allows redeclaration.
+let: Block-scoped, not hoisted, no redeclaration.
+const: Block-scoped, must be initialized, no reassignment.
+12. What is hoisting in JavaScript?
+Answer:
+Hoisting is a mechanism where variable and function declarations are moved to the top of their scope before execution.
+
+javascript
+Copy
+Edit
+console.log(x); // undefined
+var x = 5;
+13. Explain closures in JavaScript.
+Answer:
+A closure is a function that retains access to its outer scope even after the outer function has executed.
+
+javascript
+Copy
+Edit
+function outer() {
+  let count = 0;
+  return function () {
+    count++;
+    console.log(count);
+  };
+}
+
+const counter = outer();
+counter(); // 1
+counter(); // 2
+14. What is the this keyword in JavaScript?
+Answer:
+this refers to the object that is currently executing the code. Its value depends on how the function is called.
+
+15. What is the difference between map() and forEach()?
+Answer:
+
+map(): Creates a new array by applying a function to each element.
+forEach(): Iterates over an array but doesn’t return a new array.
+javascript
+Copy
+Edit
+const nums = [1, 2, 3];
+const doubled = nums.map(num => num * 2); // [2, 4, 6]
+nums.forEach(num => console.log(num)); // Logs: 1, 2, 3
+  16. What is the difference between call(), apply(), and bind()?
+Answer:
+
+call(): Invokes a function with arguments passed individually.
+apply(): Invokes a function with arguments passed as an array.
+bind(): Returns a new function with this bound to a specified object.
+17. What is asynchronous programming in JavaScript?
+Answer:
+Asynchronous programming allows non-blocking code execution. Examples include callbacks, promises, and async/await.
+
+18. What are promises in JavaScript?
+Answer:
+Promises represent the eventual completion (or failure) of an asynchronous operation.
+
+javascript
+Copy
+Edit
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => resolve("Success"), 1000);
+});
+
+promise.then((res) => console.log(res)); // Logs: "Success"
+19. What is the purpose of async/await?
+Answer:
+async/await makes asynchronous code look synchronous and easier to read.
+
+javascript
+Copy
+Edit
+async function fetchData() {
+  const data = await fetch("https://api.example.com");
+  console.log(await data.json());
+}
+20. How do you handle errors in JavaScript?
+Answer:
+You can handle errors using try...catch.
+
+javascript
+Copy
+Edit
+try {
+  let x = y; // y is not defined
+} catch (error) {
+  console.log("Error:", error.message);
+}     
+1. JavaScript Core Concepts
+var, let, aur const ka kya farq hai? Aur inka scoping kaise kaam karta hai?
+JavaScript main hoisting kya hoti hai?
+Closure kya hai aur isse kaise use karte hain?
+Event loop kya hai aur JavaScript asynchronous kaam kaise handle karta hai?
+Promises aur async/await ka farq kya hai?
+call, apply, aur bind functions kaise kaam karte hain? Examples do.
+JavaScript main prototype inheritance kya hoti hai?
+Generator functions kya hoti hain aur ye normal functions se kaise different hain?
+WeakMap aur WeakSet kya hain aur inka Map aur Set se comparison karo.
+'use strict' mode ka kya role hai aur ye behavior kaise change karta hai?
+2. Advanced Data Structures and Types
+Shallow copy aur deep copy ka kya farq hai? Implement kaise karte hain?
+JavaScript main null aur undefined ka difference kya hai?
+Type coercion kya hota hai aur == aur === kaise kaam karte hain?
+Symbol type kya hai aur iska use case kya hai?
+Floating-point arithmetic errors ko kaise solve karte hain? (e.g., 0.1 + 0.2 !== 0.3) 
+3. Asynchronous Programming
+Microtasks aur macrotasks ka kya farq hai? Examples ke saath samjhao.
+Debouncing aur throttling mein kya difference hai?
+Web workers kya hain aur ye performance kaise improve karte hain?
+Agar ek promise main dono resolve aur reject call ho jayein to kya hoga?
+Promise.all, Promise.race, aur Promise.allSettled kaise kaam karte hain?
+4. Object-Oriented Programming
+ES6 classes ka use kar ke inheritance kaise implement karte hain?
+JavaScript main getters aur setters ka kya role hai?
+super keyword kaise kaam karta hai?
+Singleton pattern kaise implement karte hain?
+Modern JavaScript main private methods aur properties kaise define karte hain?
+5. Performance Optimization
+Memory leaks kya hain aur inhe avoid kaise karte hain?
+requestAnimationFrame ka kya fayda hai animations ke liye?
+JavaScript code ko optimize karne ke kuch techniques batao.
+Lazy-loading kaise implement karte hain?
+Tree shaking kya hota hai aur isse bundling kaise efficient banti hai?
+6. DOM Manipulation and Events
+Event delegation kya hota hai aur direct event handling se better kyu hai?
+Event listeners main this ka behavior kaise hota hai?
+Capturing aur bubbling phases ka difference kya hai?
+Custom events kaise banate hain?
+DOMContentLoaded aur load events ka farq kya hai?
+7. Miscellaneous Topics
+JavaScript module system kaise kaam karta hai? CommonJS aur ES6 modules ka comparison karo.
+CORS kya hai aur iska JavaScript applications par kya impact hota hai?
+Proxy objects kya hote hain aur inka use case kya hai?
+Circular references kaise detect aur handle karte hain?
+with statement kya hai aur ye discouraged kyu hota hai?
+8. Problem-Solving Challenges
+Ek debounce function implement karo.
+Promise.all ka polyfill likho.
+Ek memoization function banao jo expensive computations optimize kare.
+Nested array ko flatten karne ka function likho.
+Custom deep comparison function banao jo do objects ko compare kare.
+
+
