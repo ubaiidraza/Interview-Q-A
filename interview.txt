@@ -1,4 +1,4 @@
- 1. JavaScript Basics
+   1. JavaScript Basics
 Question: JavaScript kya hai aur ye kis type ki language hai?
 Answer:
 JavaScript ek high-level, interpreted, aur dynamic programming language hai. Ye primarily client-side web development ke liye use hoti hai, lekin Node.js ke zariye server-side bhi kaam kar sakti hai. Ye single-threaded aur prototype-based object-oriented language hai.
@@ -467,4 +467,199 @@ Errors ko handle karne ke liye.
 Real-world example: Private variables banana.
 
 13. Prototypes aur Inheritance
-Prototype-based inheritance: Objects ke beech sharing.
+Prototype-based inheritance: Objects ke beech sharing.   
+Answers
+1️⃣ JavaScript Basics
+Q1: JavaScript aur ECMAScript mein kya farq hai?
+➡ JavaScript ek programming language hai jo web development ke liye use hoti hai.
+➡ ECMAScript JavaScript ka standard hai jo define karta hai ke JS ka syntax aur behavior kya hoga.
+
+Q2: JavaScript single-threaded hai ya multi-threaded?
+➡ JavaScript ek single-threaded language hai, iska matlab ek waqt mein sirf ek kaam execute karti hai.
+➡ Asynchronous operations ko handle karne ke liye Event Loop ka use hota hai.
+
+Q3: Hoisting kya hoti hai?
+➡ JavaScript mein hoisting ka matlab hai ke variables aur functions execution se pehle memory mein upar shift ho jate hain.
+➡ Example:
+
+js
+Copy
+Edit
+console.log(x); // undefined (hoisted but not assigned)
+var x = 5;
+
+greet(); // "Hello" (function hoisting)
+function greet() {
+  console.log("Hello");
+}
+➡ let aur const bhi hoist hote hain, lekin Temporal Dead Zone (TDZ) ke wajah se unko pehle access nahi kar sakte.
+
+2️⃣ Variables & Scope
+Q4: var, let aur const ka farq kya hai?
+
+Feature	var	let	const
+Scope	Function-scoped	Block-scoped	Block-scoped
+Reassignment	Allowed	Allowed	Not allowed
+Hoisting	Hoisted (undefined)	Hoisted (TDZ)	Hoisted (TDZ)
+Q5: Closure kya hota hai?
+➡ Closure ek function hota hai jo apne parent scope ki variables ko yaad rakhta hai, chahe parent function execute ho chuka ho.
+➡ Example:
+
+js
+Copy
+Edit
+function outer() {
+  let count = 0;
+  return function inner() {
+    count++;
+    console.log(count);
+  };
+}
+
+const counter = outer();
+counter(); // 1
+counter(); // 2
+➡ Yeh interview mein bahut zyada poocha jata hai!
+
+3️⃣ Asynchronous JavaScript
+Q6: Callback, Promise, aur Async/Await ka farq kya hai?
+➡ Callback: Function ko argument ke taur pe pass karna jo later execute hoga.
+➡ Promise: Future mein complete hone wale task ko represent karta hai (resolve / reject).
+➡ Async/Await: Promises ko handle karne ka modern aur readable syntax hai.
+
+js
+Copy
+Edit
+// Callback
+function fetchData(callback) {
+  setTimeout(() => callback("Data loaded"), 1000);
+}
+
+// Promise
+const fetchDataPromise = new Promise((resolve) => {
+  setTimeout(() => resolve("Data loaded"), 1000);
+});
+
+// Async/Await
+async function fetchDataAsync() {
+  let data = await fetchDataPromise;
+  console.log(data);
+}
+fetchDataAsync();
+Q7: JavaScript Event Loop kya hai?
+➡ Event Loop ek mechanism hai jo JavaScript ke asynchronous tasks ko handle karta hai.
+➡ Example:
+
+js
+Copy
+Edit
+console.log("Start");
+
+setTimeout(() => console.log("Timeout"), 0);
+
+Promise.resolve().then(() => console.log("Promise"));
+
+console.log("End");
+➡ Output:
+
+sql
+Copy
+Edit
+Start  
+End  
+Promise  
+Timeout  
+Promise Microtask Queue mein chalta hai, jo setTimeout se pehle execute hota hai.
+
+4️⃣ Objects & Arrays
+Q8: map(), forEach(), filter() aur reduce() mein kya farq hai?
+
+Method	Returns New Array?	Purpose
+map()	✅ Yes	Each element ko transform karta hai
+forEach()	❌ No	Har element pe function execute karta hai
+filter()	✅ Yes	Specific condition match karne wale elements ko return karta hai
+reduce()	✅ Yes	Ek single value return karta hai
+➡ Example:
+
+js
+Copy
+Edit
+const numbers = [1, 2, 3, 4, 5];
+
+const doubled = numbers.map(num => num * 2);
+console.log(doubled); // [2, 4, 6, 8, 10]
+
+const evens = numbers.filter(num => num % 2 === 0);
+console.log(evens); // [2, 4]
+
+const sum = numbers.reduce((acc, num) => acc + num, 0);
+console.log(sum); // 15
+5️⃣ Advanced JavaScript
+Q9: call(), apply(), aur bind() ka difference?
+➡ call(): Function ko invoke karta hai aur arguments individually pass karta hai.
+➡ apply(): Function ko invoke karta hai aur arguments array ke form mein leta hai.
+➡ bind(): Function ka new copy return karta hai jo later execute ho sakti hai.
+
+js
+Copy
+Edit
+function greet(message) {
+  console.log(`${message}, ${this.name}`);
+}
+
+const person = { name: "Ali" };
+
+greet.call(person, "Hello");  // Hello, Ali
+greet.apply(person, ["Hi"]);  // Hi, Ali
+const boundFunc = greet.bind(person, "Hey");
+boundFunc(); // Hey, Ali
+Q10: == aur === ka difference?
+➡ == (loose equality): Type conversion karta hai (type coercion).
+➡ === (strict equality): Type conversion nahi karta.
+
+js
+Copy
+Edit
+console.log(5 == "5");  // true  (type conversion)
+console.log(5 === "5"); // false (strict comparison)
+6️⃣ Error Handling & Performance Optimization
+Q11: JavaScript mein errors handle karne ke liye kya use hota hai?
+➡ try...catch statement ka use hota hai.
+➡ Example:
+
+js
+Copy
+Edit
+try {
+  let result = 10 / 0;
+  if (!isFinite(result)) throw new Error("Divide by zero error!");
+} catch (error) {
+  console.log(error.message);
+}
+Q12: Debouncing aur Throttling kya hai?
+➡ Debouncing: Multiple events hone par sirf last event execute hota hai.
+➡ Throttling: Ek specific interval ke baad event execute hota hai.
+
+js
+Copy
+Edit
+// Debounce Example
+function debounce(func, delay) {
+  let timer;
+  return function (...args) {
+    clearTimeout(timer);
+    timer = setTimeout(() => func(...args), delay);
+  };
+}
+
+// Throttle Example
+function throttle(func, limit) {
+  let flag = true;
+  return function (...args) {
+    if (flag) {
+      func(...args);
+      flag = false;
+      setTimeout(() => (flag = true), limit);
+    }
+  };
+}   
